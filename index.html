@@ -3,11 +3,112 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Phone Store</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <header>
-      <div class="containerHeader"></div>
+      <!-- <div class="containerHeader">
+        <div class="logo">
+          <img
+            class="logoImg"
+            src="https://png.pngtree.com/template/20190928/ourmid/pngtree-smartphone-shop-sale-logo-design-image_312693.jpg"
+            alt=""
+          />
+        </div>
+        <nav class="navHeader">
+          <ul class="listMenu">
+            <li class="itemMenu"><a href="">Smart Phone</a></li>
+            <li class="itemMenu"><a href="">Tablet</a></li>
+            <li class="itemMenu"><a href="">LapTop</a></li>
+            <li class="itemMenu"><a href="">Watch</a></li>
+            <li class="itemMenu"><a href="">Accessory</a></li>
+          </ul>
+        </nav>
+        <div class="searchHeader">
+          <input
+            class="inputSearch"
+            type="text"
+            name="search"
+            placeholder="Search"
+          />
+          <button class="btnSearch">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <div class="userLogin">
+          <i class="fa-solid fa-user"></i>
+        </div>
+      </div> -->
     </header>
+
+    <div class="modalUser">
+      <div class="containerModal">
+        <div class="headerModal">
+          <h4 class="title">Register</h4>
+          <i class="close fa-solid fa-xmark"></i>
+        </div>
+        <div class="bodyModal">
+          <form>
+            <div class="divInput">
+              <input
+                class="inputUser"
+                type="text"
+                name="userName"
+                id="userName"
+                placeholder=""
+              />
+              <label class="labelInput" for="email">User Name</label>
+            </div>
+            <div class="divInput">
+              <input
+                class="inputUser"
+                type="email"
+                name="email"
+                id="email"
+                placeholder=""
+              />
+              <label class="labelInput" for="userName">Email</label>
+            </div>
+            <div class="divInput">
+              <input
+                class="inputUser"
+                type="password"
+                name="password"
+                id="password"
+                placeholder=""
+              />
+              <label class="labelInput" for="password">Password</label>
+            </div>
+            <div class="divInput">
+              <input
+                class="inputUser"
+                type="password"
+                name="password"
+                id="password"
+                placeholder=""
+              />
+              <label class="labelInput" for="password">Password</label>
+            </div>
+            <div class="forgot">
+              <span class="forgotPassword"> Forgot password?</span>
+            </div>
+            <div class="divButton">
+              <button class="btnLogin">Login</button>
+            </div>
+            <div class="registerOfLogin">Don`t have an accouct?</div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="./src/js/lib.js"></script>
+    <script src="./src/js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&family=Lexend&display=swap");
+$fontInter: "Inter Tight", sans-serif;
+$fontLexend: "Lexend", sans-serif;
+$widthBody: 1440px;
+$heightHeader: 80px;
+header {
+  width: 100vw;
+  height: $heightHeader;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+  .containerHeader {
+    font-family: $fontInter;
+    width: $widthBody;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    .logo {
+      height: 100%;
+      .logoImg {
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+    .navHeader {
+      width: 40%;
+      min-width: 300px;
+      .listMenu {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        .itemMenu {
+          a {
+            text-decoration: none;
+            color: black;
+            font-weight: 900;
+            &:hover {
+              color: rgb(35, 172, 231);
+            }
+          }
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+    .searchHeader {
+      width: 15%;
+      position: relative;
+      .inputSearch {
+        height: 30px;
+        width: 100%;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+        padding: 0 10px;
+        border: 1px solid rgb(240, 240, 240);
+        &:focus {
+          border: 1px solid rgb(35, 172, 231);
+        }
+      }
+      .btnSearch {
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        height: 28px;
+        width: 28px;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        .fa-magnifying-glass {
+          &:hover {
+            color: rgb(35, 172, 231);
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+    .userLogin {
+      .fa-user {
+        cursor: pointer;
+        font-size: 1.2em;
+        &:hover {
+          color: rgb(35, 172, 231);
+        }
+      }
+    }
+  }
+}
+
+/* Modal */
+$widthModal: 300px;
+$maginModal: $heightHeader + 20px;
+.modalUser {
+  display: none;
+  font-family: $fontLexend;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  .containerModal {
+    width: $widthModal;
+    margin: auto;
+    margin-top: $maginModal;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px;
+    .headerModal {
+      width: 100%;
+      border-bottom: 1px solid gray;
+      position: relative;
+      .title {
+        margin-bottom: 5px;
+      }
+      .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+      }
+    }
+    .bodyModal {
+      .divInput {
+        width: 100%;
+        position: relative;
+        .inputUser {
+          margin-top: 15px;
+          width: 100%;
+          height: 35px;
+          border-radius: 20px;
+          border: none;
+          outline: none;
+          padding: 0 12px;
+          border: 1px solid gray;
+          &:focus {
+            border: 1px solid rgb(35, 172, 231);
+            & + .labelInput {
+              transform: translateY(-17px);
+              background-color: white;
+            }
+          }
+          &:not(:placeholder-shown) + .labelInput {
+            transform: translateY(-17px);
+            background-color: white;
+          }
+        }
+        .labelInput {
+          position: absolute;
+          top: 22px;
+          left: 15px;
+        }
+      }
+      .divPassword {
+        position: relative;
+        .eye {
+          position: absolute;
+          top: 25px;
+          right: 9px;
+          color: gray;
+          cursor: pointer;
+          &:hover {
+            color: rgb(35, 172, 231);
+          }
+        }
+      }
+      .forgot {
+        text-align: end;
+        padding: 5px 0;
+        .forgotPassword {
+          cursor: pointer;
+          &:hover {
+            color: rgb(35, 172, 231);
+          }
+        }
+      }
+      .divButton {
+        width: 100%;
+        .btnLogin {
+          cursor: pointer;
+          height: 35px;
+          width: 100px;
+          border-radius: 20px;
+          border: none;
+          background-color: rgb(35, 172, 231);
+          font-weight: 700;
+          margin: 5px 0;
+          &:hover {
+            background-color: rgb(155, 155, 155);
+            color: rgb(35, 172, 231);
+            font-weight: 700;
+          }
+        }
+      }
+      .registerOfLogin {
+        cursor: pointer;
+        &:hover {
+          color: rgb(35, 172, 231);
+        }
+      }
+    }
+  }
+}
