@@ -77,7 +77,7 @@
               />
               <label class="labelInput" for="userName">Email</label>
             </div>
-            <div class="divInput">
+            <div class="divInput divPassword">
               <input
                 class="inputUser"
                 type="password"
@@ -86,24 +86,35 @@
                 placeholder=""
               />
               <label class="labelInput" for="password">Password</label>
+              <i
+                onmouseup="hidePassword()"
+                onmousedown="showPassword()"
+                on
+                class="eye fa-regular fa-eye"
+              ></i>
             </div>
-            <div class="divInput">
+            <div class="divInput divPassword">
               <input
                 class="inputUser"
                 type="password"
-                name="password"
-                id="password"
+                name="cofirmPassword"
+                id="cofirmPassword"
                 placeholder=""
               />
-              <label class="labelInput" for="password">Password</label>
-            </div>
-            <div class="forgot">
-              <span class="forgotPassword"> Forgot password?</span>
+              <label class="labelInput" for="cofirmPassword"
+                >Cofirm Password</label
+              >
+              <i
+                onmouseup="hidePassword('cofirmPassword')"
+                onmousedown="showPassword('cofirmPassword')"
+                on
+                class="eye fa-regular fa-eye"
+              ></i>
             </div>
             <div class="divButton">
-              <button class="btnLogin">Login</button>
+              <button class="btnLogin">Register</button>
             </div>
-            <div class="registerOfLogin">Don`t have an accouct?</div>
+            <div class="registerOfLogin">Already have an account?</div>
           </form>
         </div>
       </div>

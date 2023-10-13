@@ -84,7 +84,10 @@ header {
       }
     }
     .userLogin {
-      .fa-user {
+      display: flex;
+      align-items: center;
+      .fa-solid {
+        margin-left: 5px;
         cursor: pointer;
         font-size: 1.2em;
         &:hover {
@@ -175,7 +178,7 @@ $maginModal: $heightHeader + 20px;
       }
       .forgot {
         text-align: end;
-        padding: 5px 0;
+        padding: 5px 0 0 0;
         .forgotPassword {
           cursor: pointer;
           &:hover {
@@ -185,6 +188,7 @@ $maginModal: $heightHeader + 20px;
       }
       .divButton {
         width: 100%;
+        margin-top: 5px;
         .btnLogin {
           cursor: pointer;
           height: 35px;
