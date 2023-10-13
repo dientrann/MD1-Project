@@ -35,6 +35,16 @@ function renderHeader() {
     `;
 }
 
+/**/
+let header = document.querySelector("header");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 10) {
+    header.style.boxShadow = "0 0 5px 5px rgba(255,255,255,0.5)";
+  } else {
+    header.style.boxShadow = "none";
+  }
+});
+
 /* Modal */
 
 function renderModal(type = "login") {
@@ -295,4 +305,181 @@ function renderUserLogin() {
 function userLogout() {
   localStorage.removeItem("userLogin");
   window.location.href = "/";
+}
+
+/* Footer */
+
+function renderFooter() {
+  let footerEl = document.querySelector("footer");
+  footerEl.innerHTML = `
+  <div class="containerFooter">
+    <div class="address">
+      <div class="title"><h5>Adderss</h5></div>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1404220778245!2d106.64761527417312!3d10.800555358749971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175296b1af354b9%3A0x706c1d25db148bf!2zNzcgTMOqIFRydW5nIE5naMSpYSwgUGjGsOG7nW5nIDEyLCBUw6JuIELDrG5oLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1697216357501!5m2!1svi!2s"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="mapGoogle"
+        ></iframe>
+      </div>
+    </div>
+    <div class="hotline">
+      <div class="title"><h5>Hotline</h5></div>
+      <div class="itemPhone"><p>1900.333.888</p></div>
+      <div class="itemPhone"><p>1900.333.999</p></div>
+    </div>
+    <div class="socialNetwork">
+      <div class="title"><h5>Social Network</h5></div>
+      <div class="itemNetwork">
+        <div class="icon">
+          <i class="fa-brands fa-facebook-f"></i>
+        </div>
+        <p>Facebook</p>
+      </div>
+      <div class="itemNetwork">
+        <div class="icon"><i class="fa-brands fa-tiktok"></i></div>
+        <p>Tiktok</p>
+      </div>
+      <div class="itemNetwork">
+        <div class="icon"><i class="fa-brands fa-youtube"></i></div>
+        <p>Youtube</p>
+      </div>
+    </div>
+  </div>
+  `;
+}
+
+/* Carousel */
+function renderCarousel(arrImg) {
+  let carouselEl = document.querySelector(".carousel");
+  carouselEl.innerHTML = `
+  <div
+    id="carouselExampleIndicators"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          src="https://2tmobile.com/wp-content/uploads/2023/09/banner-iphone-15-2tmobile-1024x405.png"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://2tmobile.com/wp-content/uploads/2023/09/banner-iphone-15-2tmobile-1024x405.png"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://2tmobile.com/wp-content/uploads/2023/09/banner-iphone-15-2tmobile-1024x405.png"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev"
+    >
+      <span
+        class="carousel-control-prev-icon"
+        aria-hidden="true"
+      ></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next"
+    >
+      <span
+        class="carousel-control-next-icon"
+        aria-hidden="true"
+      ></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  `;
+
+  let carouselInnerEl = document.querySelector(".carousel-inner");
+  let dataRenderImg = ``;
+  let carouselIndicatorsEl = document.querySelector(".carousel-indicators");
+  let dataButton = ``;
+  arrImg.forEach((element, index) => {
+    if (index == 0) {
+      dataRenderImg += `
+      <div class="carousel-item active">
+        <img
+          src="${element}"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+      `;
+      dataButton += `
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      `;
+    } else {
+      dataRenderImg += `
+      <div class="carousel-item">
+        <img
+          src="${element}"
+          class="d-block w-100"
+          alt="..."
+        />
+      </div>
+      `;
+      dataButton += `
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="${index}"
+        aria-label="Slide ${index + 1}"
+      ></button>
+      `;
+    }
+  });
+  carouselInnerEl.innerHTML = dataRenderImg;
+  carouselIndicatorsEl.innerHTML = dataButton;
 }

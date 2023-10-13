@@ -14,6 +14,7 @@ header {
   height: $heightHeader;
   background-color: rgba(255, 255, 255, 0.8);
   z-index: 10;
+  position: fixed;
   .containerHeader {
     font-family: $fontInter;
     width: $widthBody;
@@ -161,6 +162,7 @@ $maginModal: $heightHeader + 20px;
           position: absolute;
           top: 22px;
           left: 15px;
+          transition: transform 0.3s;
         }
       }
       .divPassword {
@@ -212,5 +214,77 @@ $maginModal: $heightHeader + 20px;
         }
       }
     }
+  }
+}
+
+$heightFooter: 300px;
+footer {
+  width: 100vw;
+  height: $heightFooter;
+  margin-top: 5px;
+  .containerFooter {
+    width: $widthBody;
+    height: 100%;
+    font-family: $fontInter;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid black;
+    box-shadow: 0px -3px 5px -2px rgb(0, 0, 0, 0.5);
+    .address {
+      width: 600px;
+      .title {
+        font-size: 1.2em;
+      }
+      .map {
+        .mapGoogle {
+          margin-top: 5px;
+          height: 250px;
+          border-radius: 10px;
+        }
+      }
+    }
+    .hotline {
+      width: 200px;
+      .title {
+        font-size: 1.2em;
+      }
+      .itemPhone {
+        margin: 5px;
+        p {
+          color: red;
+          font-size: 1.2em;
+          font-weight: 900;
+        }
+      }
+    }
+    .socialNetwork {
+      .title {
+        font-size: 1.2em;
+      }
+      .itemNetwork {
+        display: flex;
+        align-items: center;
+        margin: 10px;
+        font-size: 1.2em;
+        .icon {
+          width: 30px;
+          text-align: center;
+          .fa-brands {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/**/
+.contentBody {
+  padding-top: $heightHeader;
+  width: 100vw;
+  .containerBody {
+    width: $widthBody;
+    margin: auto;
   }
 }
