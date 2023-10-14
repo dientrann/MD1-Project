@@ -10,7 +10,7 @@ $fontLexend: "Lexend", sans-serif;
 $widthBody: 1440px;
 $heightHeader: 80px;
 header {
-  width: 100vw;
+  width: 100%;
   height: $heightHeader;
   background-color: rgba(255, 255, 255, 0.8);
   z-index: 10;
@@ -219,7 +219,7 @@ $maginModal: $heightHeader + 20px;
 
 $heightFooter: 300px;
 footer {
-  width: 100vw;
+  width: 100%;
   height: $heightFooter;
   margin-top: 5px;
   .containerFooter {
@@ -282,9 +282,100 @@ footer {
 /**/
 .contentBody {
   padding-top: $heightHeader;
-  width: 100vw;
+  width: 100%;
   .containerBody {
     width: $widthBody;
     margin: auto;
+    .listItem {
+      width: 100%;
+      margin: 10px 0;
+      font-family: $fontLexend;
+      .title {
+        font-size: 1.2em;
+        font-weight: 900;
+      }
+      .list {
+        width: 100%;
+        background-color: gray;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        white-space: nowrap;
+        overflow-x: auto;
+        &::-webkit-scrollbar {
+          height: 5px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: rgb(50, 50, 50); /* Màu của nút cuộn */
+          border-radius: 20px; /* Bo tròn cho nút cuộn */
+          cursor: pointer;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background: red; /* Màu của nút cuộn khi hover */
+          cursor: pointer;
+        }
+        .item {
+          background-color: rgb(224, 224, 224);
+          border-radius: 20px;
+          padding: 5px;
+          margin: 0 10px 0 5px;
+          box-shadow: 0 0 5px 5px rgb(0, 0, 0, 0.5);
+          &:hover {
+            box-shadow: 0 0 5px 5px rgb(200, 200, 200, 0.5);
+          }
+          .imgInfo {
+            height: 300px;
+            width: 300px;
+            border-radius: 20px;
+            border: 1px solid black;
+          }
+          .info {
+            padding: 5px 0;
+            h4 {
+              font-weight: 900;
+            }
+            h5 {
+              color: red;
+              font-weight: 900;
+              font-size: 1.2em;
+            }
+            .divBtnInfo {
+              text-align: end;
+              padding: 0 10px;
+              .btnInfo {
+                border-radius: 20px;
+                height: 30px;
+                padding: 0 10px;
+                border: 1px solid black;
+                &.btnBuy {
+                  background-color: gold;
+                }
+                &.btnDetail {
+                  background-color: rgb(35, 172, 231);
+                }
+              }
+            }
+          }
+        }
+        .more {
+          .itemMore {
+            border-radius: 50%;
+            background-color: rgb(224, 224, 224);
+            height: 150px;
+            width: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 5px 5px rgb(0, 0, 0, 0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            &:hover {
+              box-shadow: 0 0 5px 5px rgb(200, 200, 200, 0.5);
+            }
+          }
+        }
+      }
+    }
   }
 }

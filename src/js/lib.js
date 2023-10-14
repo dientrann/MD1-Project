@@ -10,7 +10,7 @@ function renderHeader() {
         </div>
         <nav class="navHeader">
         <ul class="listMenu">
-            <li class="itemMenu"><a href="">Smart Phone</a></li>
+            <li class="itemMenu"><a href="./src/page/smartPhone.html">Smart Phone</a></li>
             <li class="itemMenu"><a href="">Tablet</a></li>
             <li class="itemMenu"><a href="">LapTop</a></li>
             <li class="itemMenu"><a href="">Watch</a></li>
