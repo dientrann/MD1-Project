@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&family=Lexend&display=swap");
+$fontInter: "Inter Tight", sans-serif;
+$fontLexend: "Lexend", sans-serif;
+$heightMenu: 50px;
+
+.headerContainer {
+  font-family: $fontLexend;
+  width: 100%;
+  height: $heightMenu;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  .menu {
+    height: $heightMenu;
+    width: 50%;
+    .listItemMenu {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style: none;
+      .item {
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.2);
+          color: rgb(35, 172, 231);
+        }
+      }
+    }
+  }
+}
+.bodyContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .list {
+    width: 1320px;
+    background-color: gray;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .item {
+      background-color: rgb(224, 224, 224);
+      border-radius: 20px;
+      padding: 5px;
+      margin: 0 10px 0 5px;
+      box-shadow: 0 0 5px 5px rgb(0, 0, 0, 0.5);
+      margin: 10px;
+      &:hover {
+        box-shadow: 0 0 5px 5px rgb(200, 200, 200, 0.5);
+      }
+      .imgInfo {
+        height: 300px;
+        width: 300px;
+        border-radius: 20px;
+        border: 1px solid black;
+      }
+      .info {
+        padding: 5px 0;
+        h4 {
+          font-weight: 900;
+        }
+        h5 {
+          color: red;
+          font-weight: 900;
+          font-size: 1.2em;
+        }
+        .divBtnInfo {
+          text-align: end;
+          padding: 0 10px;
+          .btnInfo {
+            border-radius: 20px;
+            height: 30px;
+            padding: 0 10px;
+            border: 1px solid black;
+            &.btnBuy {
+              background-color: gold;
+            }
+            &.btnDetail {
+              background-color: rgb(35, 172, 231);
+            }
+          }
+        }
+      }
+    }
+  }
+}

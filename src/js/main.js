@@ -9,81 +9,6 @@ let imgs = [
 ];
 renderCarousel(imgs);
 
-let listProduct = [
-  {
-    productId: Date.now() * Math.random(),
-    productName: "Iphone 14",
-    productPrice: 3000000,
-    productImg:
-      "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-max-den-thumb-600x600.jpg",
-    productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
-    status: true,
-    outstanding: true,
-    quantity: 50,
-    type: "Smart Phone",
-  },
-  {
-    productId: Date.now() * Math.random(),
-    productName: "Iphone 14",
-    productPrice: 3000000,
-    productImg:
-      "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-max-den-thumb-600x600.jpg",
-    productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
-    status: true,
-    outstanding: true,
-    quantity: 50,
-    type: "Smart Phone",
-  },
-  {
-    productId: Date.now() * Math.random(),
-    productName: "Iphone 14",
-    productPrice: 3000000,
-    productImg:
-      "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-max-den-thumb-600x600.jpg",
-    productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
-    status: false,
-    outstanding: true,
-    quantity: 50,
-    type: "Smart Phone",
-  },
-  {
-    productId: Date.now() * Math.random(),
-    productName: "Iphone 14",
-    productPrice: 3000000,
-    productImg:
-      "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-max-den-thumb-600x600.jpg",
-    productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
-    status: true,
-    outstanding: false,
-    quantity: 50,
-    type: "Smart Phone",
-  },
-  {
-    productId: Date.now() * Math.random(),
-    productName: "Iphone 14",
-    productPrice: 3000000,
-    productImg:
-      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/1/_/1_71_18_1.jpg",
-    productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
-    status: true,
-    outstanding: true,
-    quantity: 50,
-    type: "Lap Top",
-  },
-  {
-    productId: Date.now() * Math.random(),
-    productName: "Iphone 14",
-    productPrice: 3000000,
-    productImg:
-      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/1/_/1_71_18_1.jpg",
-    productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
-    status: true,
-    outstanding: true,
-    quantity: 50,
-    type: "Lap Top",
-  },
-];
-
 function renderListSmartPhone(IdElement, arr) {
   let divContentEl = document.getElementById(IdElement);
   divContentEl.innerHTML = `
@@ -139,3 +64,4 @@ renderListSmartPhone(
     return item.type == "Lap Top";
   })
 );
+
