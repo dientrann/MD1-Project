@@ -11,15 +11,31 @@ let listSmartPhone = listProduct.filter((item) => {
   return item.type == "Smart Phone";
 });
 
+function getManufacturer(arr) {
+  let manufacturers = [];
+  arr.forEach((element) => {
+    if (!manufacturers.includes(element.manufacturer)) {
+      manufacturers.push(element.manufacturer);
+    }
+  });
+  return manufacturers;
+}
+
+let manufacturers = getManufacturer(listSmartPhone);
+
 let listSmartPhoneApple = listSmartPhone.filter((item) => {
   return item.manufacturer == "Apple";
 });
-function renderHeaderContainer() {
+
+let listSmartPhoneSamSung = listSmartPhone.filter((item) => {
+  return item.manufacturer == "SamSung";
+});
+function renderHeaderContainer(arr) {
   document.querySelector(".headerContainer").innerHTML = `
     <nav class="menu">
       <ul class="listItemMenu">
         <li onclick="renderItem(listSmartPhoneApple)" class="item">Apple</li>
-        <li class="item">SamSung</li>
+        <li onclick="renderItem(listSmartPhoneSamSung)" class="item">SamSung</li>
         <li class="item">LG</li>
         <li class="item">Xiaomi</li>
       </ul>
@@ -32,9 +48,16 @@ function renderHeaderContainer() {
       </div>
     </div>
   `;
+  let dataItemMenu = ``;
+  arr.forEach((element) => {
+    dataItemMenu += `
+    <li onclick="renderItem(listSmartPhone${element})" class="item">${element}</li>
+    `;
+  });
+  document.querySelector(".listItemMenu").innerHTML = dataItemMenu;
 }
 
-renderHeaderContainer();
+renderHeaderContainer(manufacturers);
 
 renderItem(listSmartPhone);
 

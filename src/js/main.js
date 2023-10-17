@@ -42,7 +42,7 @@ function renderListSmartPhone(IdElement, arr) {
   });
   dataProduct += `
     <div class="more">
-      <div class="itemMore"><h3>More ...</h3></div>
+      <div class="itemMore"><a href="/src/page/${IdElement}.html"><h3>More ...</h3></a></div>
     </div>
     `;
 
@@ -64,4 +64,5 @@ renderListSmartPhone(
     return item.type == "Lap Top";
   })
 );
+
 

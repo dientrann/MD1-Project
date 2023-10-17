@@ -12,9 +12,9 @@ function renderHeader() {
         </div>
         <nav class="navHeader">
         <ul class="listMenu">
-            <li class="itemMenu"><a href="./src/page/smartPhone.html">Smart Phone</a></li>
+            <li class="itemMenu"><a href="/src/page/smartPhone.html">Smart Phone</a></li>
             <li class="itemMenu"><a href="">Tablet</a></li>
-            <li class="itemMenu"><a href="">LapTop</a></li>
+            <li class="itemMenu"><a href="/src/page/lapTop.html">LapTop</a></li>
             <li class="itemMenu"><a href="">Watch</a></li>
             <li class="itemMenu"><a href="">Accessory</a></li>
         </ul>
@@ -554,7 +554,7 @@ let listProduct = [
   },
   {
     productId: Date.now() * Math.random(),
-    productName: "Iphone 14",
+    productName: "MacBook 13",
     productPrice: 3000000,
     productImg:
       "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/1/_/1_71_18_1.jpg",
@@ -567,7 +567,7 @@ let listProduct = [
   },
   {
     productId: Date.now() * Math.random(),
-    productName: "Iphone 14",
+    productName: "MacBook 14",
     productPrice: 3000000,
     productImg:
       "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/1/_/1_71_18_1.jpg",
