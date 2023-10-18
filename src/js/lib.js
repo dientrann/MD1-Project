@@ -240,6 +240,7 @@ function addUser(event, arr) {
     email: event.target.email.value,
     role: "member",
     status: true,
+    cart: [],
   };
 
   let user = arr.find((item) => {
@@ -287,7 +288,7 @@ function userLogin(event, arr) {
     alert("sai mat khau");
     return;
   }
-  localStorage.setItem("userLogin", JSON.stringify(userLogin));
+  localStorage.setItem("userLogin", JSON.stringify(user));
   window.location.href = "/";
 }
 
@@ -296,7 +297,7 @@ function renderUserLogin() {
   let userLoginEl = document.querySelector(".userLogin");
   let dataUserString = ``;
   if (dataUserLogin.userName) {
-    dataUserString = `<p>Chào ${dataUserLogin.userName} </p><i onclick="userLogout()" class="fa-solid fa-arrow-right-from-bracket"></i>`;
+    dataUserString = `<p>Chào ${dataUserLogin.userName} </p> <a href="/src/page/cart.html"><i class="fa-solid fa-cart-shopping"></i></a> <i onclick="userLogout()" class="fa-solid fa-arrow-right-from-bracket"></i>`;
   } else {
     dataUserString = `<i onclick="renderModal(), showModal() " class="fa-solid fa-user"></i>`;
   }
@@ -580,6 +581,8 @@ let listProduct = [
   },
 ];
 
+localStorage.setItem("products", JSON.stringify(listProduct));
+
 function renderItem(arr) {
   let bodyContainerEl = document.querySelector(".bodyContainer");
   if (!bodyContainerEl.querySelector(".list")) {
@@ -615,4 +618,30 @@ function searchProduct(arr) {
   let dataSearch = document.querySelector(".inputSearch").value.toLowerCase();
   localStorage.setItem("search", dataSearch);
   window.location.href = "http://127.0.0.1:5500/src/page/search.html";
+}
+
+function cartUser(productId, users) {
+  console.log("da vao");
+  let userLogin = localStorage.getItem("userLogin");
+  if (!userLogin) {
+    alert("You are not login");
+    return;
+  }
+  userLogin = JSON.parse(userLogin);
+  for (let user of users) {
+    if (user.id == userLogin.id) {
+      user.cart.push(productId);
+      break;
+    }
+  }
+  localStorage.setItem("users", JSON.stringify(users));
+  localStorage.setItem(
+    "userLogin",
+    JSON.stringify(
+      users.find((user) => {
+        return user.id == userLogin.id;
+      })
+    )
+  );
+  alert("Thêm vào giỏ hàng thành công");
 }

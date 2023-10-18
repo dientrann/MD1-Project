@@ -33,7 +33,9 @@ function renderListSmartPhone(IdElement, arr) {
         <h4>${element.productName}</h4>
         <h5>${element.productPrice.toLocaleString("en-US")}</h5>
         <div class="divBtnInfo">
-          <button class="btnInfo btnBuy">Buy</button>
+          <button onclick="cartUser(${
+            element.productId
+          }, users)" class="btnInfo btnBuy">Buy</button>
           <button class="btnInfo btnDetail">Detail</button>
         </div>
       </div>
@@ -64,5 +66,3 @@ renderListSmartPhone(
     return item.type == "Lap Top";
   })
 );
-
-

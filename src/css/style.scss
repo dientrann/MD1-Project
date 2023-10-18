@@ -87,6 +87,9 @@ header {
     .userLogin {
       display: flex;
       align-items: center;
+      p {
+        margin: 0;
+      }
       .fa-solid {
         margin-left: 5px;
         cursor: pointer;
