@@ -1,15 +1,50 @@
 renderHeader();
 renderUserLogin();
 renderFooter();
+
+let link = window.location.href;
+
+let page = link.split("?page=")[1];
+console.log(page);
+
+let list = [];
+
+if (page == "smartPhone") {
+  list = listProduct.filter((item) => {
+    return item.type == "Smart Phone";
+  });
+}
+if (page == "lapTop") {
+  list = listProduct.filter((item) => {
+    return item.type == "Lap Top";
+  });
+}
+
+if (page == "tablet") {
+  list = listProduct.filter((item) => {
+    return item.type == "Tablet";
+  });
+}
+
+if (page == "watch") {
+  list = listProduct.filter((item) => {
+    return item.type == "Watch";
+  });
+}
+
+
+
+if (page == "accessory") {
+  list = listProduct.filter((item) => {
+    return item.type == "Accessory";
+  });
+}
+
 let imgs = [
   "https://2tmobile.com/wp-content/uploads/2023/09/banner-iphone-15-2tmobile-1024x405.png",
   "https://2tmobile.com/wp-content/uploads/2023/09/banner-mac-2tmobile-1024x405.png",
 ];
 renderCarousel(imgs);
-
-let listSmartPhone = listProduct.filter((item) => {
-  return item.type == "Smart Phone";
-});
 
 function getManufacturer(arr) {
   let manufacturers = [];
@@ -21,13 +56,13 @@ function getManufacturer(arr) {
   return manufacturers;
 }
 
-let manufacturers = getManufacturer(listSmartPhone);
+let manufacturers = getManufacturer(list);
 
-let listSmartPhoneApple = listSmartPhone.filter((item) => {
+let listSmartPhoneApple = list.filter((item) => {
   return item.manufacturer == "Apple";
 });
 
-let listSmartPhoneSamSung = listSmartPhone.filter((item) => {
+let listSmartPhoneSamSung = list.filter((item) => {
   return item.manufacturer == "SamSung";
 });
 function renderHeaderContainer(arr) {
@@ -59,7 +94,7 @@ function renderHeaderContainer(arr) {
 
 renderHeaderContainer(manufacturers);
 
-renderItem(listSmartPhone);
+renderItem(list);
 
 function sortPrice(arr) {
   console.log(arr);

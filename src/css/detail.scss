@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&family=Lexend&display=swap");
+$fontInter: "Inter Tight", sans-serif;
+$fontLexend: "Lexend", sans-serif;
+
+.headerContainer {
+  h3 {
+    font-family: $fontLexend;
+  }
+}
+.infoProduct {
+  font-family: $fontLexend;
+  width: 600px;
+  margin-bottom: 20px;
+  .info {
+    h4 {
+      font-weight: 900;
+    }
+    h5 {
+      font-weight: 900;
+      color: red;
+    }
+    .divBtnInfo {
+      text-align: end;
+      .btnBuy {
+        border-radius: 20px;
+        height: 30px;
+        background-color: gold;
+        border: 1px solid gray;
+        padding: 0 10px;
+      }
+    }
+  }
+}

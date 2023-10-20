@@ -7,12 +7,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&family=Lexend&display=swap");
 $fontInter: "Inter Tight", sans-serif;
 $fontLexend: "Lexend", sans-serif;
-$widthBody: 1440px;
+$widthBody: 1240px;
 $heightHeader: 80px;
 header {
   width: 100%;
   height: $heightHeader;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   z-index: 10;
   position: fixed;
   .containerHeader {
@@ -83,11 +83,50 @@ header {
           }
         }
       }
+      .modalSearch {
+        display: none;
+        position: absolute;
+        left: -50px;
+        top: 5px;
+        margin-top: 30px;
+        width: 300px;
+        background-color: white;
+        box-shadow: 0 0 10px 2px rgb(0, 0, 0, 0.5);
+        .itemSearch {
+          cursor: pointer;
+          display: flex;
+          font-size: 0.8rem;
+          border-bottom: 1px solid gray;
+          &:hover {
+            box-shadow: 0 0 5px 2px rgb(0, 0, 0, 0.5);
+          }
+          &:hover + img {
+            height: 60px;
+            width: 60px;
+          }
+          img {
+            margin: 2px;
+            height: 50px;
+            width: 50px;
+          }
+          .info {
+            padding: 5px;
+            h4 {
+              font-size: 1em;
+            }
+            h5 {
+              font-size: 0.8em;
+              color: red;
+            }
+          }
+        }
+      }
     }
     .userLogin {
       display: flex;
       align-items: center;
       p {
+        cursor: pointer;
         margin: 0;
       }
       .fa-solid {
@@ -114,6 +153,7 @@ $maginModal: $heightHeader + 20px;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
   .containerModal {
     width: $widthModal;
     margin: auto;
@@ -152,13 +192,23 @@ $maginModal: $heightHeader + 20px;
           &:focus {
             border: 1px solid rgb(35, 172, 231);
             & + .labelInput {
-              transform: translateY(-17px);
-              background-color: white;
+              transform: translateY(-21px);
+              //background-color: white;
+              background: linear-gradient(
+                to bottom,
+                white 63%,
+                rgb(0, 0, 0, 0) 37%
+              );
             }
           }
           &:not(:placeholder-shown) + .labelInput {
-            transform: translateY(-17px);
-            background-color: white;
+            transform: translateY(-21px);
+            //background-color: white;
+            background: linear-gradient(
+              to bottom,
+              white 63%,
+              rgb(0, 0, 0, 0) 37%
+            );
           }
         }
         .labelInput {
@@ -286,6 +336,7 @@ footer {
 .contentBody {
   padding-top: $heightHeader;
   width: 100%;
+  min-height: 500px;
   .containerBody {
     width: $widthBody;
     margin: auto;

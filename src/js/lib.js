@@ -12,15 +12,16 @@ function renderHeader() {
         </div>
         <nav class="navHeader">
         <ul class="listMenu">
-            <li class="itemMenu"><a href="/src/page/smartPhone.html">Smart Phone</a></li>
-            <li class="itemMenu"><a href="">Tablet</a></li>
-            <li class="itemMenu"><a href="/src/page/lapTop.html">LapTop</a></li>
-            <li class="itemMenu"><a href="">Watch</a></li>
-            <li class="itemMenu"><a href="">Accessory</a></li>
+            <li class="itemMenu"><a href="/src/page/smartPhone.html?page=smartPhone">Smart Phone</a></li>
+            <li class="itemMenu"><a href="/src/page/smartPhone.html?page=tablet">Tablet</a></li>
+            <li class="itemMenu"><a href="/src/page/smartPhone.html?page=lapTop">LapTop</a></li>
+            <li class="itemMenu"><a href="/src/page/smartPhone.html?page=watch">Watch</a></li>
+            <li class="itemMenu"><a href="/src/page/smartPhone.html?page=accessory">Accessory</a></li>
         </ul>
         </nav>
         <div class="searchHeader">
         <input
+            onkeyup="searchProduct(listProduct), showModalSearch()"
             class="inputSearch"
             type="text"
             name="search"
@@ -29,6 +30,18 @@ function renderHeader() {
         <button onclick="searchProduct(listProduct)" class="btnSearch">
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
+        <div class="modalSearch">
+            <div class="itemSearch">
+              <img
+                src="https://2tmobile.com/wp-content/uploads/2023/09/iphone-15-plus-pink-2tmobile-1.jpg"
+                alt=""
+              />
+              <div class="info">
+                <h4>Name</h4>
+                <h5>Giá</h5>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="userLogin">
         <i onclick="renderModal(), showModal() " class="fa-solid fa-user"></i>
@@ -297,7 +310,7 @@ function renderUserLogin() {
   let userLoginEl = document.querySelector(".userLogin");
   let dataUserString = ``;
   if (dataUserLogin.userName) {
-    dataUserString = `<p>Chào ${dataUserLogin.userName} </p> <a href="/src/page/cart.html"><i class="fa-solid fa-cart-shopping"></i></a> <i onclick="userLogout()" class="fa-solid fa-arrow-right-from-bracket"></i>`;
+    dataUserString = `<p onclick="window.location.href = '/src/admin'">Chào ${dataUserLogin.userName} </p> <a href="/src/page/cart.html"><i class="fa-solid fa-cart-shopping"></i></a> <i onclick="userLogout()" class="fa-solid fa-arrow-right-from-bracket"></i>`;
   } else {
     dataUserString = `<i onclick="renderModal(), showModal() " class="fa-solid fa-user"></i>`;
   }
@@ -487,101 +500,112 @@ function renderCarousel(arrImg) {
   carouselIndicatorsEl.innerHTML = dataButton;
 }
 
-let listProduct = [
-  {
-    productId: Date.now() * Math.random(),
-    productName: "Iphone 14",
-    productPrice: 3000000,
-    productImg:
-      "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-max-den-thumb-600x600.jpg",
-    productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
-    status: true,
-    outstanding: true,
-    quantity: 50,
-    type: "Smart Phone",
-    manufacturer: "Apple",
-  },
-  {
-    productId: Date.now() * Math.random(),
-    productName: "SamSung Z",
-    productPrice: 3000000,
-    productImg:
-      "https://2tmobile.com/wp-content/uploads/2023/08/samsung-galaxy-z-flod5-xanh-2tmobile.jpg",
-    productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
-    status: true,
-    outstanding: true,
-    quantity: 50,
-    type: "Smart Phone",
-    manufacturer: "SamSung",
-  },
-  {
-    productId: Date.now() * Math.random(),
-    productName: "Iphone 14",
-    productPrice: 4000000,
-    productImg:
-      "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-max-den-thumb-600x600.jpg",
-    productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
-    status: true,
-    outstanding: true,
-    quantity: 50,
-    type: "Smart Phone",
-    manufacturer: "Apple",
-  },
-  {
-    productId: Date.now() * Math.random(),
-    productName: "Iphone 14",
-    productPrice: 2000000,
-    productImg:
-      "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-max-den-thumb-600x600.jpg",
-    productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
-    status: false,
-    outstanding: true,
-    quantity: 50,
-    type: "Smart Phone",
-    manufacturer: "Apple",
-  },
-  {
-    productId: Date.now() * Math.random(),
-    productName: "Iphone 14",
-    productPrice: 3000000,
-    productImg:
-      "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-max-den-thumb-600x600.jpg",
-    productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
-    status: true,
-    outstanding: false,
-    quantity: 50,
-    type: "Smart Phone",
-    manufacturer: "Apple",
-  },
-  {
-    productId: Date.now() * Math.random(),
-    productName: "MacBook 13",
-    productPrice: 3000000,
-    productImg:
-      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/1/_/1_71_18_1.jpg",
-    productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
-    status: true,
-    outstanding: true,
-    quantity: 50,
-    type: "Lap Top",
-    manufacturer: "Apple",
-  },
-  {
-    productId: Date.now() * Math.random(),
-    productName: "MacBook 14",
-    productPrice: 3000000,
-    productImg:
-      "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/1/_/1_71_18_1.jpg",
-    productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
-    status: true,
-    outstanding: true,
-    quantity: 50,
-    type: "Lap Top",
-    manufacturer: "Apple",
-  },
-];
+// let listProduct = [
+//   {
+//     productId: Date.now() * Math.random(),
+//     productName: "Iphone 14",
+//     productPrice: 3000000,
+//     productImg:
+//       "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-max-den-thumb-600x600.jpg",
+//     productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
+//     status: true,
+//     outstanding: true,
+//     quantity: 50,
+//     type: "Smart Phone",
+//     manufacturer: "Apple",
+//   },
+//   {
+//     productId: Date.now() * Math.random(),
+//     productName: "SamSung Z",
+//     productPrice: 3000000,
+//     productImg:
+//       "https://2tmobile.com/wp-content/uploads/2023/08/samsung-galaxy-z-flod5-xanh-2tmobile.jpg",
+//     productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
+//     status: true,
+//     outstanding: true,
+//     quantity: 50,
+//     type: "Smart Phone",
+//     manufacturer: "SamSung",
+//   },
+//   {
+//     productId: Date.now() * Math.random(),
+//     productName: "Iphone 14",
+//     productPrice: 4000000,
+//     productImg:
+//       "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-max-den-thumb-600x600.jpg",
+//     productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
+//     status: true,
+//     outstanding: true,
+//     quantity: 50,
+//     type: "Smart Phone",
+//     manufacturer: "Apple",
+//   },
+//   {
+//     productId: Date.now() * Math.random(),
+//     productName: "Iphone 14",
+//     productPrice: 2000000,
+//     productImg:
+//       "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-max-den-thumb-600x600.jpg",
+//     productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
+//     status: false,
+//     outstanding: true,
+//     quantity: 50,
+//     type: "Smart Phone",
+//     manufacturer: "Apple",
+//   },
+//   {
+//     productId: Date.now() * Math.random(),
+//     productName: "Iphone 14",
+//     productPrice: 3000000,
+//     productImg:
+//       "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-max-den-thumb-600x600.jpg",
+//     productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
+//     status: true,
+//     outstanding: false,
+//     quantity: 50,
+//     type: "Smart Phone",
+//     manufacturer: "Apple",
+//   },
+//   {
+//     productId: Date.now() * Math.random(),
+//     productName: "MacBook 13",
+//     productPrice: 3000000,
+//     productImg:
+//       "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/1/_/1_71_18_1.jpg",
+//     productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
+//     status: true,
+//     outstanding: true,
+//     quantity: 50,
+//     type: "Lap Top",
+//     manufacturer: "Apple",
+//   },
+//   {
+//     productId: Date.now() * Math.random(),
+//     productName: "MacBook 14",
+//     productPrice: 3000000,
+//     productImg:
+//       "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/1/_/1_71_18_1.jpg",
+//     productDescribe: "Iphone 14 jahsdasdkasdhkajsdh",
+//     status: true,
+//     outstanding: true,
+//     quantity: 50,
+//     type: "Lap Top",
+//     manufacturer: "Apple",
+//   },
+// ];
 
-localStorage.setItem("products", JSON.stringify(listProduct));
+// localStorage.setItem("products", JSON.stringify(listProduct));
+let listProduct = [];
+function datalocal() {
+  let dataProducts = localStorage.getItem("products");
+  if (dataProducts) {
+    return JSON.parse(dataProducts);
+  } else {
+    return [];
+  }
+}
+
+listProduct = datalocal();
 
 function renderItem(arr) {
   let bodyContainerEl = document.querySelector(".bodyContainer");
@@ -602,10 +626,17 @@ function renderItem(arr) {
       />
       <div class="info">
         <h4>${element.productName}</h4>
-        <h5>${element.productPrice.toLocaleString("en-US")}</h5>
+        <h5>${element.productPrice.toLocaleString("vi", {
+          style: "currency",
+          currency: "VND",
+        })}</h5>
         <div class="divBtnInfo">
-          <button class="btnInfo btnBuy">Buy</button>
-          <button class="btnInfo btnDetail">Detail</button>
+          <button onclick="cartUser(${
+            element.productId
+          }, users)" class="btnInfo btnBuy">Buy</button>
+          <button onclick="window.location.href = '/src/page/detail.html?id=${
+            element.productId
+          }'" class="btnInfo btnDetail">Detail</button>
         </div>
       </div>
     </div>
@@ -616,8 +647,35 @@ function renderItem(arr) {
 
 function searchProduct(arr) {
   let dataSearch = document.querySelector(".inputSearch").value.toLowerCase();
+  let result = arr.filter((item) => {
+    return item.productName.toLowerCase().includes(dataSearch);
+  });
+  let dataItem = ``;
+  result.forEach((element) => {
+    dataItem += `
+    <div onclick="window.location.href = '/src/page/detail.html?id=${
+      element.productId
+    }'" class="itemSearch">
+      <img
+        src="${element.productImg}"
+        alt=""
+      />
+      <div class="info">
+        <h4>${element.productName}</h4>
+        <h5>${element.productPrice.toLocaleString("vi", {
+          style: "currency",
+          currency: "VND",
+        })}</h5>
+      </div>
+    </div>
+    `;
+  });
+  let itemSearchEl = document.querySelector(".modalSearch");
+  itemSearchEl.innerHTML = dataItem;
+
+  console.log("Search", result);
   localStorage.setItem("search", dataSearch);
-  window.location.href = "http://127.0.0.1:5500/src/page/search.html";
+  //window.location.href = "http://127.0.0.1:5500/src/page/search.html";
 }
 
 function cartUser(productId, users) {
@@ -644,4 +702,14 @@ function cartUser(productId, users) {
     )
   );
   alert("Thêm vào giỏ hàng thành công");
+}
+
+function showModalSearch() {
+  let modalSearchEl = document.querySelector(".modalSearch");
+  modalSearchEl.style.display = "block";
+  window.onclick = (event) => {
+    if (event.target != modalSearchEl) {
+      modalSearchEl.style.display = "none";
+    }
+  };
 }

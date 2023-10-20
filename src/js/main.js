@@ -9,7 +9,7 @@ let imgs = [
 ];
 renderCarousel(imgs);
 
-function renderListSmartPhone(IdElement, arr) {
+function renderList(IdElement, arr) {
   let divContentEl = document.getElementById(IdElement);
   divContentEl.innerHTML = `
   <div class="listItem">
@@ -18,8 +18,7 @@ function renderListSmartPhone(IdElement, arr) {
   </div>
   `;
 
-  let index = document.querySelectorAll(".list").length - 1;
-  let listProductEl = document.querySelectorAll(".list")[index];
+  let listProductEl = divContentEl.querySelector(".list");
   let dataProduct = ``;
   arr.forEach((element) => {
     dataProduct += `
@@ -31,12 +30,17 @@ function renderListSmartPhone(IdElement, arr) {
       />
       <div class="info">
         <h4>${element.productName}</h4>
-        <h5>${element.productPrice.toLocaleString("en-US")}</h5>
+        <h5>${element.productPrice.toLocaleString("vi", {
+          style: "currency",
+          currency: "VND",
+        })}</h5>
         <div class="divBtnInfo">
           <button onclick="cartUser(${
             element.productId
           }, users)" class="btnInfo btnBuy">Buy</button>
-          <button class="btnInfo btnDetail">Detail</button>
+          <button onclick="window.location.href = '/src/page/detail.html?id=${
+            element.productId
+          }'" class="btnInfo btnDetail">Detail</button>
         </div>
       </div>
     </div>
@@ -44,13 +48,13 @@ function renderListSmartPhone(IdElement, arr) {
   });
   dataProduct += `
     <div class="more">
-      <div class="itemMore"><a href="/src/page/${IdElement}.html"><h3>More ...</h3></a></div>
+      <div class="itemMore"><a href="/src/page/smartPhone.html?page=${IdElement}"><h3>More ...</h3></a></div>
     </div>
     `;
 
   listProductEl.innerHTML = dataProduct;
 }
-renderListSmartPhone(
+renderList(
   "smartPhone",
   listProduct.filter((item) => {
     return (
@@ -60,9 +64,40 @@ renderListSmartPhone(
     );
   })
 );
-renderListSmartPhone(
+renderList(
   "lapTop",
   listProduct.filter((item) => {
-    return item.type == "Lap Top";
+    return (
+      item.type == "Lap Top" && item.status == true && item.outstanding == true
+    );
+  })
+);
+
+renderList(
+  "watch",
+  listProduct.filter((item) => {
+    return (
+      item.type == "Watch" && item.status == true && item.outstanding == true
+    );
+  })
+);
+
+renderList(
+  "tablet",
+  listProduct.filter((item) => {
+    return (
+      item.type == "Tablet" && item.status == true && item.outstanding == true
+    );
+  })
+);
+
+renderList(
+  "accessory",
+  listProduct.filter((item) => {
+    return (
+      item.type == "Accessory" &&
+      item.status == true &&
+      item.outstanding == true
+    );
   })
 );

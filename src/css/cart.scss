@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&family=Lexend&display=swap");
+$fontInter: "Inter Tight", sans-serif;
+$fontLexend: "Lexend", sans-serif;
+.headerContainer {
+  font-family: $fontLexend;
+}
+.bodyContainer {
+  table {
+    vertical-align: middle;
+  }
+  .sumPrice {
+    h5 {
+      span {
+        color: red;
+      }
+    }
+  }
+}
