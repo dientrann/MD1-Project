@@ -310,12 +310,13 @@ function renderUserLogin() {
   let userLoginEl = document.querySelector(".userLogin");
   let dataUserString = ``;
   if (dataUserLogin.userName) {
-    dataUserString = `<p onclick="window.location.href = '/src/admin'">Chào ${dataUserLogin.userName} </p> <a href="/src/page/cart.html"><i class="fa-solid fa-cart-shopping"></i></a> <i onclick="userLogout()" class="fa-solid fa-arrow-right-from-bracket"></i>`;
+    dataUserString = `<p onclick="window.location.href = '/src/admin'">Chào ${dataUserLogin.userName} </p> <div class="cartUser"><a href="/src/page/cart.html"><i class="fa-solid fa-cart-shopping"></i></a><span class="sumProduct">10</span></div> <i onclick="userLogout()" class="fa-solid fa-arrow-right-from-bracket"></i>`;
   } else {
     dataUserString = `<i onclick="renderModal(), showModal() " class="fa-solid fa-user"></i>`;
   }
 
   userLoginEl.innerHTML = dataUserString;
+  sumProduct();
 }
 
 function userLogout() {
@@ -607,43 +608,51 @@ function datalocal() {
 
 listProduct = datalocal();
 
-function renderItem(arr) {
-  let bodyContainerEl = document.querySelector(".bodyContainer");
-  if (!bodyContainerEl.querySelector(".list")) {
-    let newDiv = document.createElement("div");
-    newDiv.className = "list";
-    bodyContainerEl.appendChild(newDiv);
-  }
-  let listEl = bodyContainerEl.querySelector(".list");
-  let dataItemString = ``;
-  arr.forEach((element) => {
-    dataItemString += `
-    <div class="item">
-      <img
-        class="imgInfo"
-        src="${element.productImg}"
-        alt=""
-      />
-      <div class="info">
-        <h4>${element.productName}</h4>
-        <h5>${element.productPrice.toLocaleString("vi", {
-          style: "currency",
-          currency: "VND",
-        })}</h5>
-        <div class="divBtnInfo">
-          <button onclick="cartUser(${
-            element.productId
-          }, users)" class="btnInfo btnBuy">Buy</button>
-          <button onclick="window.location.href = '/src/page/detail.html?id=${
-            element.productId
-          }'" class="btnInfo btnDetail">Detail</button>
-        </div>
-      </div>
-    </div>
-    `;
-  });
-  listEl.innerHTML = dataItemString;
-}
+// function renderItem(arr) {
+//   let bodyContainerEl = document.querySelector(".bodyContainer");
+//   bodyContainerEl.innerHTML = `
+//   <div class="leftContainer">
+//     <div class="filter">
+//       <input type="checkbox" name="" id="">
+//       <label for="">Apple</label>
+//     </div>
+//   </div>
+//   `;
+//   if (!bodyContainerEl.querySelector(".list")) {
+//     let newDiv = document.createElement("div");
+//     newDiv.className = "list";
+//     bodyContainerEl.appendChild(newDiv);
+//   }
+//   let listEl = bodyContainerEl.querySelector(".list");
+//   let dataItemString = ``;
+//   arr.forEach((element) => {
+//     dataItemString += `
+//     <div class="item">
+//       <img
+//         class="imgInfo"
+//         src="${element.productImg}"
+//         alt=""
+//       />
+//       <div class="info">
+//         <h4>${element.productName}</h4>
+//         <h5>${element.productPrice.toLocaleString("vi", {
+//           style: "currency",
+//           currency: "VND",
+//         })}</h5>
+//         <div class="divBtnInfo">
+//           <button onclick="cartUser(${
+//             element.productId
+//           }, users)" class="btnInfo btnBuy">Buy</button>
+//           <button onclick="window.location.href = '/src/page/detail.html?id=${
+//             element.productId
+//           }'" class="btnInfo btnDetail">Detail</button>
+//         </div>
+//       </div>
+//     </div>
+//     `;
+//   });
+//   listEl.innerHTML = dataItemString;
+// }
 
 function searchProduct(arr) {
   let dataSearch = document.querySelector(".inputSearch").value.toLowerCase();
@@ -709,4 +718,14 @@ function showModalSearch() {
       modalSearchEl.style.display = "none";
     }
   };
+}
+
+function sumProduct() {
+  let sumProductEl = document.querySelector(".sumProduct");
+  if (!sumProductEl) {
+    return;
+  }
+  let dataUserLogin = JSON.parse(localStorage.getItem("userLogin")) ?? {};
+
+  sumProductEl.innerHTML = `${dataUserLogin.cart.length}`;
 }

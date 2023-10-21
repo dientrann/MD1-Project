@@ -30,7 +30,7 @@ function renderProduct(arr) {
       <div class="divBtnInfo">
         <button onclick="cartUser(${
           product.productId
-        }, users)" class="btnInfo btnBuy">Buy</button>
+        }, users),sumProduct()" class="btnInfo btnBuy">Buy</button>
       </div>
     </div>
   </div>

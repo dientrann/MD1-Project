@@ -46,6 +46,8 @@ function getProductBill(bill, products) {
 }
 
 function renderTableBill(bills, products) {
+  document.querySelector(".sumPrice").style.display = "none";
+  document.querySelector(".btnPay").style.display = "none";
   document.querySelector("thead").innerHTML = `
   <tr>
     <th>
@@ -101,7 +103,6 @@ function renderTableBill(bills, products) {
     listNameProductEl.innerHTML = dataItem;
   });
 }
-
 
 function deleteBill(idBill, bills) {
   let bill = bills.find((item) => {

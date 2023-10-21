@@ -340,6 +340,12 @@ footer {
   .containerBody {
     width: $widthBody;
     margin: auto;
+    .carousel {
+      img {
+        width: 100%;
+        height: 500px;
+      }
+    }
     .listItem {
       width: 100%;
       margin: 10px 0;
@@ -431,5 +437,18 @@ footer {
         }
       }
     }
+  }
+}
+
+.cartUser {
+  position: relative;
+  .sumProduct {
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    font-size: 0.8em;
+    background-color: red;
+    border-radius: 50px;
+    padding: 2px;
   }
 }

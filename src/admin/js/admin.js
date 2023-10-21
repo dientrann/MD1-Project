@@ -28,7 +28,7 @@ function renderMenu(type = "product") {
   if (type == "product") {
     dataMenu = `
   <div
-      onclick="renderDataProduct(products),renderMenu()"
+      onclick="renderDataProduct(products),renderHeaderProduct() ,renderMenu()"
       class="itemMenu active"
     >
       <h5>Product Manager</h5>
@@ -44,7 +44,7 @@ function renderMenu(type = "product") {
   if (type == "bill") {
     dataMenu = `
   <div
-      onclick="renderDataProduct(products),renderMenu()"
+      onclick="renderDataProduct(products), renderHeaderProduct(),renderMenu()"
       class="itemMenu "
     >
       <h5>Product Manager</h5>

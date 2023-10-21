@@ -29,6 +29,7 @@ function itemOption(value) {
   let lapTop = ["Apple", "Dell", "SamSung", "Hp", "MSI"];
   let tablet = ["Apple", "SamSung", "Huawei"];
   let watch = ["Apple", "SamSung", "Huawei", "Xiaomi", "Honor"];
+  let accessory = ["Apple", "SamSung", "JBL"];
 
   if (value == "Smart Phone") {
     return smartPhone;
@@ -41,6 +42,9 @@ function itemOption(value) {
   }
   if (value == "Watch") {
     return watch;
+  }
+  if (value == "Accessory") {
+    return accessory;
   }
   return;
 }
@@ -269,6 +273,14 @@ function renderModalUpdate(productID, arr) {
 function renderHeaderProduct() {
   document.querySelector(".headerRightContent").innerHTML = `
   <h4>Product</h4>
+  <div class="searchProduct">
+  <div class="input-group rounded">
+    <input onkeyup="searchProduct(products)" type="search" id="search" name="inputSearch" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+    <span onclick="searchProduct(products)" class="input-group-text border-0" id="search-addon">
+      <i class="fas fa-search"></i>
+    </span>
+  </div>
+  </div>
     <button
       onclick="showModalAdmin() , renderModalCreate()"
       class="btn btn-success btnAdd"
@@ -299,9 +311,9 @@ function addProduct(event, arr) {
   renderDataProduct(arr);
   closeModalAdmin();
 }
+renderHeaderProduct();
 
 function renderDataProduct(arr) {
-  renderHeaderProduct();
   document.querySelector("thead").innerHTML = `
   <tr>
     <th>Name</th>
@@ -376,4 +388,12 @@ function updateProduct(event, productId, arr) {
   alert("Success");
   renderDataProduct(arr);
   closeModalAdmin();
+}
+
+function searchProduct(products) {
+  let inputSearch = document.getElementById("search").value.toLowerCase();
+  let result = products.filter((item) => {
+    return item.productName.toLowerCase().includes(inputSearch);
+  });
+  renderDataProduct(result);
 }

@@ -11,6 +11,9 @@ renderCarousel(imgs);
 
 function renderList(IdElement, arr) {
   let divContentEl = document.getElementById(IdElement);
+  if (arr.length == 0) {
+    return;
+  }
   divContentEl.innerHTML = `
   <div class="listItem">
     <div class="title">${arr[0].type}</div>
@@ -37,7 +40,7 @@ function renderList(IdElement, arr) {
         <div class="divBtnInfo">
           <button onclick="cartUser(${
             element.productId
-          }, users)" class="btnInfo btnBuy">Buy</button>
+          }, users), sumProduct()" class="btnInfo btnBuy">Buy</button>
           <button onclick="window.location.href = '/src/page/detail.html?id=${
             element.productId
           }'" class="btnInfo btnDetail">Detail</button>

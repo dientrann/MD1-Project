@@ -5,6 +5,8 @@ renderFooter();
 renderUserLogin();
 
 function renderTable(products) {
+  document.querySelector(".sumPrice").style.display = "block";
+  document.querySelector(".btnPay").style.display = "block";
   document.querySelector("thead").innerHTML = `
   <tr>
     <th>

@@ -39,12 +39,24 @@ function renderDataBill(arr, users, products) {
         <td>${item.billProducts}</td>
         <td>${item.billStatus}</td>
         <td>
-        <button type="button" class="btn btn-danger">Delete</button
-        ><button type="button" class="btn btn-primary">Edit</button>
+        <button onclick="successBill(${item.billId}, bills)" type="button" class="btn btn-success">Success</button>
         </td>
     </tr>
         `;
   });
 
   bodyTableEl.innerHTML = dataProduct;
+}
+function successBill(idBill, bills) {
+  console.log(idBill, bills);
+  for (let i in bills) {
+    if (bills[i].billId == idBill) {
+      bills[i] = {
+        ...bills[i],
+        billStatus: "success",
+      };
+    }
+  }
+  localStorage.setItem("bills", JSON.stringify(bills));
+  renderDataBill(bills, users, products);
 }
