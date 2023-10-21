@@ -35,49 +35,39 @@
       </div>
       <div class="adminBody">
         <div class="leftContent">
-          <div class="itemMenu active"><h5>Product Manager</h5></div>
-          <div class="itemMenu"><h5>User Manager</h5></div>
+          <div
+            onclick="renderDataProduct(products),renderMenu('product')"
+            class="itemMenu active"
+          >
+            <h5>Product Manager</h5>
+          </div>
+          <div
+            onclick="renderDataBill(bills, users, products),renderMenu('bill')"
+            class="itemMenu"
+          >
+            <h5>Bill Manager</h5>
+          </div>
         </div>
         <div class="rightContent">
           <div class="headerRightContent">
-            <h4>Product</h4>
-            <button
-              onclick="showModalAdmin() , renderModalCreate()"
-              class="btn btn-success btnAdd"
-            >
-              New Product
-            </button>
+            <h4>Bill</h4>
           </div>
-          <table class="table tableProduct">
+          <table class="table">
             <thead>
               <tr>
-                <th>Name</th>
+                <th>User Name</th>
                 <th>Price</th>
-                <th>IMG</th>
-                <th>Manufacturer</th>
+                <th>Product Name</th>
                 <th>Status</th>
-                <th>Outstanding</th>
-                <th>Quantity</th>
-                <th>Type</th>
                 <th>Tools</th>
               </tr>
             </thead>
             <tbody class="bodyTable">
-              <tr class="productItem">
-                <td>Iphone 14</td>
+              <tr class="billItem">
+                <td>UserName</td>
                 <td>300000</td>
-                <td>
-                  <img
-                    src="https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289700/iphone-14-pro-max-den-thumb-600x600.jpg"
-                    alt=""
-                    style="height: 50px; width: 50px"
-                  />
-                </td>
-                <td>Apple</td>
-                <td>true</td>
-                <td>true</td>
-                <td>50</td>
-                <td>Smart Phone</td>
+                <td>Tên SP</td>
+                <td>Pending</td>
                 <td>
                   <button type="button" class="btn btn-danger">Delete</button
                   ><button type="button" class="btn btn-primary">Edit</button>
@@ -190,5 +180,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/product.js"></script>
+    <script src="./js/manageBill.js"></script>
   </body>
 </html>

@@ -24,7 +24,20 @@
     <header></header>
     <section class="contentBody">
       <div class="containerBody">
-        <div class="headerContainer"><h4>Cart</h4></div>
+        <div class="headerContainer">
+          <div
+            onclick="renderTable(listProduct), renderHeaderCart()"
+            class="menuHeader active"
+          >
+            <h4>Cart</h4>
+          </div>
+          <div
+            onclick="renderTableBill(bills, listProduct), renderHeaderCart('bill')"
+            class="menuHeader"
+          >
+            <h4>Bill</h4>
+          </div>
+        </div>
         <div class="bodyContainer">
           <table class="table">
             <thead>
@@ -41,7 +54,13 @@
             <tbody class="bodyTable"></tbody>
           </table>
           <div class="sumPrice">Giá:</div>
-          <div><button onclick="addBill(bills,users)">Pay Bill</button></div>
+          <div>
+            <button
+              onclick="addBill(bills,users), sumPrice(itemCheck(), listProduct)"
+            >
+              Pay Bill
+            </button>
+          </div>
         </div>
       </div>
     </section>

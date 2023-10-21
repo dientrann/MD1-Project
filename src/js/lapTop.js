@@ -43,10 +43,8 @@ renderHeaderContainer();
 renderItem(listLapTop);
 
 function sortPrice(arr) {
-  console.log(arr);
   let sortPrice = arr.sort((a, b) => {
     return a.productPrice - b.productPrice;
   });
-  console.log(sortPrice);
   renderItem(sortPrice);
 }

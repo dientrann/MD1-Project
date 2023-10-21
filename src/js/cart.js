@@ -5,6 +5,17 @@ renderFooter();
 renderUserLogin();
 
 function renderTable(products) {
+  document.querySelector("thead").innerHTML = `
+  <tr>
+    <th>
+      <input type="checkbox" checked />
+    </th>
+    <th>Name Product</th>
+    <th>Img Product</th>
+    <th>Price Product</th>
+    <th>Delete</th>
+  </tr>
+  `;
   let tbodyEL = document.querySelector(".bodyTable");
   let dataTableString = ``;
   let dataUserLogin = JSON.parse(localStorage.getItem("userLogin")) ?? {};
@@ -66,6 +77,7 @@ function sumPrice(arr, products) {
     style: "currency",
     currency: "VND",
   })} </h5></span>`;
+  return sum;
 }
 
 sumPrice(itemCheck(), listProduct);
@@ -95,4 +107,29 @@ function deleteCart(idProduct, users) {
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.setItem("userLogin", JSON.stringify(userLogin));
   renderTable(listProduct);
+}
+
+function renderHeaderCart(type = "cart") {
+  let headerContainerEl = document.querySelector(".headerContainer");
+  let dataHeader = ``;
+  if (type == "cart") {
+    dataHeader = `
+    <div onclick="renderTable(listProduct),renderHeaderCart()" class="menuHeader active">
+      <h4>Cart</h4>
+    </div>
+    <div onclick="renderTableBill(bills, listProduct),renderHeaderCart('bill')" class="menuHeader">
+      <h4>Bill</h4>
+    </div>
+    `;
+  } else {
+    dataHeader = `
+    <div onclick="renderTable(listProduct),renderHeaderCart()" class="menuHeader">
+      <h4>Cart</h4>
+    </div>
+    <div onclick="renderTableBill(bills, listProduct),renderHeaderCart('bill')" class="menuHeader active">
+      <h4>Bill</h4>
+    </div>
+    `;
+  }
+  headerContainerEl.innerHTML = dataHeader;
 }

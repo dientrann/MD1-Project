@@ -2,10 +2,9 @@ renderHeader();
 renderUserLogin();
 renderFooter();
 
-let link = window.location.href;
-
-let page = link.split("?page=")[1];
-console.log(page);
+const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());
+let page = params.page;
 
 let list = [];
 
@@ -31,8 +30,6 @@ if (page == "watch") {
     return item.type == "Watch";
   });
 }
-
-
 
 if (page == "accessory") {
   list = listProduct.filter((item) => {
@@ -97,10 +94,8 @@ renderHeaderContainer(manufacturers);
 renderItem(list);
 
 function sortPrice(arr) {
-  console.log(arr);
   let sortPrice = arr.sort((a, b) => {
     return a.productPrice - b.productPrice;
   });
-  console.log(sortPrice);
   renderItem(sortPrice);
 }

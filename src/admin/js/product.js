@@ -257,7 +257,6 @@ function renderModalUpdate(productID, arr) {
   document.querySelector(".selectType").value = product.type;
   document.querySelector(".selectManufacturer").value = product.manufacturer;
   if (product.status == true) {
-    console.log(product.type);
     document.getElementById("status").checked = true;
   }
   if (product.outstanding == true) {
@@ -266,6 +265,18 @@ function renderModalUpdate(productID, arr) {
 }
 
 /* Product */
+
+function renderHeaderProduct() {
+  document.querySelector(".headerRightContent").innerHTML = `
+  <h4>Product</h4>
+    <button
+      onclick="showModalAdmin() , renderModalCreate()"
+      class="btn btn-success btnAdd"
+    >
+      New Product
+    </button>
+  `;
+}
 
 function addProduct(event, arr) {
   event.preventDefault();
@@ -290,6 +301,20 @@ function addProduct(event, arr) {
 }
 
 function renderDataProduct(arr) {
+  renderHeaderProduct();
+  document.querySelector("thead").innerHTML = `
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>IMG</th>
+    <th>Manufacturer</th>
+    <th>Status</th>
+    <th>Outstanding</th>
+    <th>Quantity</th>
+    <th>Type</th>
+    <th>Tools</th>
+  </tr>
+  `;
   let bodyTableEl = document.querySelector(".bodyTable");
   let dataProduct = ``;
   arr.forEach((item, index) => {

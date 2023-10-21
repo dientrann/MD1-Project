@@ -3,6 +3,16 @@ $fontInter: "Inter Tight", sans-serif;
 $fontLexend: "Lexend", sans-serif;
 .headerContainer {
   font-family: $fontLexend;
+  display: flex;
+  .menuHeader {
+    padding: 5px;
+    width: 200px;
+    height: 35px;
+  }
+  .active {
+    background-color: rgb(66, 180, 229);
+    color: white;
+  }
 }
 .bodyContainer {
   table {

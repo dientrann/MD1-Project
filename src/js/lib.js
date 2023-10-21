@@ -672,14 +672,11 @@ function searchProduct(arr) {
   });
   let itemSearchEl = document.querySelector(".modalSearch");
   itemSearchEl.innerHTML = dataItem;
-
-  console.log("Search", result);
   localStorage.setItem("search", dataSearch);
   //window.location.href = "http://127.0.0.1:5500/src/page/search.html";
 }
 
 function cartUser(productId, users) {
-  console.log("da vao");
   let userLogin = localStorage.getItem("userLogin");
   if (!userLogin) {
     alert("You are not login");

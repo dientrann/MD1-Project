@@ -3,8 +3,9 @@ renderUserLogin();
 renderFooter();
 
 function productID() {
-  let link = window.location.href;
-  let productId = link.split("id=")[1];
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const params = Object.fromEntries(urlSearchParams.entries());
+  let productId = params.id;
   return productId;
 }
 
