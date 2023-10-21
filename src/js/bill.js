@@ -120,5 +120,5 @@ function deleteBill(idBill, bills) {
     }
   }
   localStorage.setItem("bills", JSON.stringify(bills));
-  renderTableBill(listProduct);
+  renderTableBill(bills, listProduct);
 }
